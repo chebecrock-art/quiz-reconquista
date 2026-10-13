@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Plano Reconquista Absoluta</title>
+  <link rel="icon" type="image/jpeg" href="assets/avatar.jpg" />
+  <meta name="description" content="Use os gatilhos da atração e reconquiste seu grande amor rapidamente!" />
+  
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Plano Reconquista Absoluta" />
+  <meta property="og:description" content="Faça o teste grátis de 1 minuto com o especialista..." />
+  <meta property="og:image" content="assets/avatar.jpg" />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --wa-header-bg: #008069;
+      --wa-header-text: #ffffff;
+      --wa-bg: #efeae2;
+      --wa-host-bubble: #ffffff;
+      --wa-guest-bubble: #e1ffc7;
+      --wa-text-primary: #111b21;
+      --wa-text-secondary: #667781;
+      --wa-btn-bg: #128c7e;
+      --wa-btn-text: #ffffff;
+      --wa-blue-check: #29afdf;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Open Sans', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background-color: var(--wa-bg);
+      background-image: url('assets/background.png');
+      background-repeat: repeat;
+      background-size: 360px auto;
+      color: var(--wa-text-primary);
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* BARRA SUPERIOR DO WHATSAPP */
+    .wa-header {
+      position: relative;
+      height: 62px;
+      flex-shrink: 0;
+      background-color: var(--wa-header-bg);
+      color: var(--wa-header-text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .wa-header-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .wa-back-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .wa-avatar-wrap {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background-color: #e9edef;
+    }
+
+    .wa-avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .wa-contact-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 4px;
+      overflow: hidden;
+    }
+
+    .wa-contact-name {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .wa-verified-badge {
+      display: inline-flex;
+      color: #29afdf;
+    }
+
+    .wa-contact-status {
+      font-size: 12px;
+      font-weight: 400;
+      opacity: 0.9;
+      height: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .wa-contact-status.typing {
+      color: #dcf8c6;
+      font-weight: 600;
+    }
+
+    .wa-header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-right: 4px;
+    }
+
+    .wa-header-icon {
+      color: #fff;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0.95;
+    }
+
+    /* CONTAINER DO CHAT */
+    .chat-container {
+      flex: 1;
+      min-height: 0;
+      margin-top: 0;
+      padding: 12px 14px 16px 14px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* INFO DE SEGURANÇA E DATA */
+    .security-notice {
+      background-color: #d5f4f0;
+      color: #53676b;
+      font-size: 12.5px;
+      line-height: 1.4;
+      padding: 8px 12px;
+      border-radius: 10px;
+      max-width: 380px;
+      margin: 8px auto 4px auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+    }
+
+    .date-badge {
+      background-color: #ede8e2;
+      color: #54656f;
+      font-size: 11.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 8px;
+      width: fit-content;
+      margin: 4px auto 10px auto;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+    }
+
+    /* BOLHAS DE MENSAGEM */
+    .msg-row {
+      display: flex;
+      width: 100%;
+      margin-bottom: 2px;
+      animation: fadeInMsg 0.25s ease-out forwards;
+    }
+
+    @keyframes fadeInMsg {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .msg-row.host {
+      justify-content: flex-start;
+    }
+
+    .msg-row.guest {
+      justify-content: flex-end;
+    }
+
+    .bubble {
+      position: relative;
+      max-width: 84%;
+      padding: 8px 12px 18px 12px;
+      border-radius: 8px;
+      font-size: 14.5px;
+      line-height: 1.45;
+      box-shadow: 0 1px 1.5px rgba(0,0,0,0.13);
+      word-wrap: break-word;
+    }
+
+    @media (min-width: 600px) {
+      .bubble {
+        max-width: 520px;
+      }
+    }
+
+    /* Bolha Host (Dr. Carlos) */
+    .msg-row.host .bubble {
+      background-color: var(--wa-host-bubble);
+      color: var(--wa-text-primary);
+      border-top-left-radius: 0;
+    }
+
+    .msg-row.host .bubble::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -8px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 8px 10px 0;
+      border-color: transparent var(--wa-host-bubble) transparent transparent;
+    }
+
+    /* Bolha Guest (Usuário) */
+    .msg-row.guest .bubble {
+      background-color: var(--wa-guest-bubble);
+      color: var(--wa-text-primary);
+      border-top-right-radius: 0;
+    }
+
+    .msg-row.guest .bubble::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -8px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 8px 0 0;
+      border-color: var(--wa-guest-bubble) transparent transparent transparent;
+    }
+
+    /* Estilização interna da mensagem */
+    .bubble p {
+      margin-bottom: 8px;
+    }
+    .bubble p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bubble b, .bubble strong {
+      font-weight: 700;
+    }
+
+    .bubble u {
+      text-decoration: underline;
+    }
+
+    .bubble i, .bubble em {
+      font-style: italic;
+    }
+
+    .bubble s {
+      text-decoration: line-through;
+      color: #8696a0;
+    }
+
+    .bubble img.msg-img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+
+    /* Timestamps */
+    .msg-time {
+      position: absolute;
+      bottom: 3px;
+      right: 7px;
+      font-size: 11px;
+      color: var(--wa-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .check-icon {
+      display: inline-flex;
+    }
+
+    /* DIGITANDO / TYPING INDICATOR */
+    .typing-bubble {
+      background-color: var(--wa-host-bubble);
+      border-radius: 8px;
+      border-top-left-radius: 0;
+      padding: 10px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 1px 1.5px rgba(0,0,0,0.13);
+      position: relative;
+      margin-bottom: 2px;
+    }
+
+    .typing-bubble::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -8px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 8px 10px 0;
+      border-color: transparent var(--wa-host-bubble) transparent transparent;
+    }
+
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #8696a0;
+      border-radius: 50%;
+      animation: typingBlink 1.4s infinite both;
+    }
+
+    .typing-dot:nth-child(1) { animation-delay: 0.1s; }
+    .typing-dot:nth-child(2) { animation-delay: 0.3s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.5s; }
+
+    @keyframes typingBlink {
+      0%, 80%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+      }
+      40% {
+        opacity: 1;
+        transform: scale(1.15);
+      }
+    }
+
+    /* ÁREA DE RESPOSTAS / BOTÕES - FICA NATURALMENTE NO RODAPÉ SEM COBRIR */
+    .action-container {
+      position: relative;
+      flex-shrink: 0;
+      width: 100%;
+      padding: 6px 14px 14px 14px;
+      background: transparent;
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
+
+    .action-container:empty {
+      display: none;
+      padding: 0;
+    }
+
+    .choice-btn {
+      width: 100%;
+      max-width: 480px;
+      background-color: var(--wa-btn-bg);
+      color: var(--wa-btn-text);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 18px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.16);
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      text-align: center;
+      line-height: 1.35;
+      outline: none;
+      flex-shrink: 0;
+    }
+
+    .choice-btn:hover {
+      background-color: #0f7a6e;
+    }
+
+    .choice-btn:active {
+      transform: scale(0.98);
+      background-color: #0a5f55;
+    }
+
+    .choice-btn.cta-big {
+      background-color: #1ea952;
+      font-size: 16.5px;
+      font-weight: 700;
+      padding: 15px 20px;
+      letter-spacing: 0.3px;
+      box-shadow: 0 4px 12px rgba(30, 169, 82, 0.35);
+      animation: pulseBtn 2s infinite ease-in-out;
+    }
+
+    .choice-btn.cta-big:hover {
+      background-color: #178a42;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.02);
+      }
+    }
+
+    /* CARDS DOS 3 PLANOS EM METICAIS */
+    .plans-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 480px;
+      margin-top: 4px;
+    }
+
+    .plan-card {
+      background: #ffffff;
+      border: 1.5px solid #d0d7de;
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      position: relative;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .plan-card:hover {
+      border-color: #008069;
+      transform: translateY(-2px);
+    }
+
+    .plan-card.featured {
+      border: 2px solid #008069;
+      background: #f7fffb;
+      box-shadow: 0 4px 12px rgba(0, 128, 105, 0.15);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      background: #008069;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .plan-card.featured .plan-badge {
+      background: #e65100;
+    }
+
+    .plan-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .plan-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #111b21;
+    }
+
+    .plan-price {
+      font-size: 20px;
+      font-weight: 800;
+      color: #008069;
+    }
+
+    .plan-price span {
+      font-size: 13px;
+      font-weight: 500;
+      color: #667781;
+    }
+
+    .plan-features {
+      list-style: none;
+      margin: 10px 0 14px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .plan-features li {
+      font-size: 13px;
+      line-height: 1.35;
+      color: #334155;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .plan-btn {
+      width: 100%;
+      background: #128c7e;
+      color: #fff;
+      font-size: 14.5px;
+      font-weight: 700;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      transition: background 0.15s;
+    }
+
+    .plan-card.featured .plan-btn {
+      background: #1ea952;
+      box-shadow: 0 4px 10px rgba(30, 169, 82, 0.35);
+    }
+
+    .plan-btn:hover {
+      filter: brightness(0.92);
+    }
+  </style>
+
+  <!-- Links de Checkout e Ação de Retorno (Sem rastreios/Sem UTMs) -->
+  <script>
+    const CHECKOUT_PLANO_197 = "https://pay.lojou.app/Ed43w";
+    const CHECKOUT_PLANO_297 = "https://pay.lojou.app/9jRA6";
+    const CHECKOUT_PLANO_397 = "https://pay.lojou.app/hvS22";
+    const BACK_REDIRECT_URL = "planos.html";
+
+    // Ação anti-abandono limpa
+    (function setupBackRedirect() {
+      if (!BACK_REDIRECT_URL) return;
+      try {
+        history.pushState({}, '', location.href);
+        history.pushState({}, '', location.href);
+        window.addEventListener('popstate', function () {
+          window.location.href = BACK_REDIRECT_URL;
+        });
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- TOPO WHATSAPP -->
+  <header class="wa-header">
+    <div class="wa-header-left">
+      <a class="wa-back-btn" id="headerBackBtn" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </a>
+      <div class="wa-avatar-wrap">
+        <img src="assets/avatar.jpg" alt="Dr. Carlos" />
+      </div>
+      <div class="wa-contact-info">
+        <div class="wa-contact-name">
+          <span>Dr. Carlos</span>
+          <span class="wa-verified-badge" title="Conta verificada">
+            <svg viewBox="0 0 18 18" height="15" width="15" fill="currentColor">
+              <polygon points="9,16 7.1,16.9 5.8,15.2 3.7,15.1 3.4,13 1.5,12 2.2,9.9 1.1,8.2 2.6,6.7 2.4,4.6 4.5,4 5.3,2 7.4,2.4 9,1.1 10.7,2.4 12.7,2 13.6,4 15.6,4.6 15.5,6.7 17,8.2 15.9,9.9 16.5,12 14.7,13 14.3,15.1 12.2,15.2 10.9,16.9"></polygon>
+              <polygon fill="#FFFFFF" points="13.1,7.3 12.2,6.5 8.1,10.6 5.9,8.5 5,9.4 8,12.4"></polygon>
+            </svg>
+          </span>
+        </div>
+        <div class="wa-contact-status" id="headerStatus">online</div>
+      </div>
+    </div>
+    <div class="wa-header-right">
+      <div class="wa-header-icon" title="Chamada de vídeo">
+        <svg xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="23 7 16 12 23 17 23 7"></polygon>
+          <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+        </svg>
+      </div>
+      <div class="wa-header-icon" title="Chamada de voz">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ÁREA DE MENSAGENS -->
+  <main class="chat-container" id="chatContainer">
+    <!-- Aviso de Conta Comercial -->
+    <div class="security-notice">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+      <span>Esta é uma conta comercial e não recebe ligações</span>
+    </div>
+
+    <!-- Data -->
+    <div class="date-badge">Hoje</div>
+
+    <!-- Mensagens inseridas via JavaScript -->
+  </main>
+
+  <!-- BOTÕES DE ESCOLHA / AÇÃO -->
+  <footer class="action-container" id="actionContainer">
+    <!-- Botões inseridos dinamicamente -->
+  </footer>
+
+  <!-- ÁUDIO DE NOTIFICAÇÃO DO WHATSAPP -->
+  <audio id="waSound" src="assets/audio_whatsapp.mp3" preload="auto"></audio>
+
+  <!-- LÓGICA DO QUIZ EM JAVASCRIPT -->
+  <script>
+    (function () {
+      const chatContainer = document.getElementById("chatContainer");
+      const actionContainer = document.getElementById("actionContainer");
+      const headerStatus = document.getElementById("headerStatus");
+      const waSound = document.getElementById("waSound");
+      const headerBackBtn = document.getElementById("headerBackBtn");
+
+      if (headerBackBtn) {
+        headerBackBtn.href = BACK_REDIRECT_URL;
+      }
+
+      // Estado do usuário durante o Quiz
+      const userAnswers = {
+        gender: "homem", // homem ou mulher
+        targetName: "ela", // ela ou ele
+        targetPossessive: "sua ex", // sua ex ou seu ex
+        targetPronoun: "nela", // nela ou nele
+        targetArt: "a", // a ou o
+        targetOppositeGender: "feminino", // feminino ou masculino
+        frequency: "todos_os_dias",
+        timeEnded: "menos_uma_semana",
+        whoEnded: "ela",
+        ranAfter: "sim",
+        concern: "esquecer",
+        reaction: "ignora",
+        acceptBack: "sim",
+        desireLevel: 3,
+        commitment: "sim"
+      };
+
+      // Tocar som de notificação
+      function playNotificationSound() {
+        try {
+          waSound.currentTime = 0;
+          const playPromise = waSound.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(function () {
+              // Navegador bloqueia antes da primeira interação
+            });
+          }
+        } catch (e) {}
+      }
+
+      // SEMPRE PUXAR A HORA REAL ATUAL DO DISPOSITIVO (HH:mm)
+      function getCurrentTime() {
+        const now = new Date();
+        const h = String(now.getHours()).padStart(2, '0');
+        const m = String(now.getMinutes()).padStart(2, '0');
+        return h + ':' + m;
+      }
+
+      // ROLAGEM SUAVE: GARANTE QUE A ÚLTIMA MENSAGEM FIQUE SEMPRE 100% VISÍVEL
+      function scrollToBottom() {
+        window.requestAnimationFrame(function () {
+          setTimeout(function () {
+            chatContainer.scrollTo({
+              top: chatContainer.scrollHeight,
+              behavior: 'smooth'
+            });
+          }, 35);
+        });
+      }
+
+      // Criar bolha de "digitando..."
+      let activeTypingBubble = null;
+      function showTypingIndicator() {
+        if (activeTypingBubble) return;
+        headerStatus.innerText = "digitando...";
+        headerStatus.classList.add("typing");
+
+        const row = document.createElement("div");
+        row.className = "msg-row host";
+        row.id = "typingRow";
+
+        const bubble = document.createElement("div");
+        bubble.className = "typing-bubble";
+        bubble.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+
+        row.appendChild(bubble);
+        chatContainer.appendChild(row);
+        activeTypingBubble = row;
+        scrollToBottom();
+      }
+
+      function hideTypingIndicator() {
+        if (activeTypingBubble) {
+          activeTypingBubble.remove();
+          activeTypingBubble = null;
+        }
+        headerStatus.innerText = "online";
+        headerStatus.classList.remove("typing");
+      }
+
+      // Renderizar mensagem do Host (Dr. Carlos) com hora real
+      function addHostMessage(htmlContent, isImage = false) {
+        const row = document.createElement("div");
+        row.className = "msg-row host";
+
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+
+        if (isImage) {
+          const img = document.createElement("img");
+          img.className = "msg-img";
+          img.src = htmlContent;
+          img.alt = "Mídia do Plano";
+          img.onload = function () {
+            scrollToBottom();
+          };
+          bubble.appendChild(img);
+        } else {
+          bubble.innerHTML = htmlContent;
+        }
+
+        const timeSpan = document.createElement("span");
+        timeSpan.className = "msg-time";
+        timeSpan.innerText = getCurrentTime();
+        bubble.appendChild(timeSpan);
+
+        row.appendChild(bubble);
+        chatContainer.appendChild(row);
+        playNotificationSound();
+        scrollToBottom();
+      }
+
+      // Renderizar mensagem do Guest (Usuário) com hora real e check duplo
+      function addGuestMessage(text) {
+        const row = document.createElement("div");
+        row.className = "msg-row guest";
+
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.innerHTML = text;
+
+        const timeSpan = document.createElement("span");
+        timeSpan.className = "msg-time";
+        timeSpan.innerHTML = getCurrentTime() +
+          ' <span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.6 24.7" height="13" width="16"><path d="M19.1 22.3l1.4 1.5 17.9-20.3" fill="none" stroke="#29afdf" stroke-linecap="round" stroke-width="3"></path><path d="M3.1 14.9l7.1 8 17.8-20.1" fill="none" stroke="#29afdf" stroke-linecap="round" stroke-width="3"></path></svg></span>';
+        bubble.appendChild(timeSpan);
+
+        row.appendChild(bubble);
+        chatContainer.appendChild(row);
+        scrollToBottom();
+      }
+
+      // Limpar opções
+      function clearActions() {
+        actionContainer.innerHTML = "";
+      }
+
+      // Configurar botões de opções
+      function setActions(options) {
+        clearActions();
+        options.forEach(function (opt) {
+          const btn = document.createElement("button");
+          btn.className = "choice-btn" + (opt.isCta ? " cta-big" : "");
+          btn.innerHTML = opt.text;
+          btn.onclick = function () {
+            clearActions();
+            addGuestMessage(opt.text);
+            if (typeof opt.onSelect === "function") {
+              opt.onSelect();
+            }
+          };
+          actionContainer.appendChild(btn);
+        });
+        scrollToBottom();
+      }
+
+      // Executar sequência de mensagens do bot
+      function runBotSequence(messages, onComplete) {
+        let index = 0;
+        function next() {
+          if (index >= messages.length) {
+            hideTypingIndicator();
+            if (typeof onComplete === "function") onComplete();
+            return;
+          }
+
+          const current = messages[index++];
+          showTypingIndicator();
+
+          const delay = current.delay || 1100;
+          setTimeout(function () {
+            hideTypingIndicator();
+            addHostMessage(current.content, current.isImage || false);
+            setTimeout(next, 450);
+          }, delay);
+        }
+        next();
+      }
+
+      // ========================================================
+      // ETAPAS DO QUIZ (COM RESPOSTAS TOTALMENTE PERSONALIZADAS)
+      // ========================================================
+
+      // ETAPA 0: Entrada
+      function step0() {
+        runBotSequence([
+          {
+            delay: 700,
+            content: 'Use os <u>"gatilhos da atração"</u> e <b>reconquiste quem você ama rapidamente!</b><br><br>Clique abaixo, faça o <b>teste grátis de 1 minuto</b> e aprenda com a ciência dos relacionamentos...'
+          }
+        ], function () {
+          setActions([
+            {
+              text: "👉 COMEÇAR TESTE GRÁTIS",
+              onSelect: step1
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 1: Apresentação da Autoridade
+      function step1() {
+        runBotSequence([
+          {
+            delay: 1300,
+            content: 'Olá, sou o Dr. Carlos - <b>especialista em psicologia comportamental e reconquista amorosa</b> há mais de 15 anos.<br><br>Já ajudei <b>mais de 7.600 pessoas</b> a reverterem términos aparentemente impossíveis.<br><br>Me responda algumas <b>perguntas rápidas e sinceras</b> para eu traçar o diagnóstico exato da sua situação!'
+          }
+        ], function () {
+          setActions([
+            {
+              text: "Continuar",
+              onSelect: step2
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 2: Gênero (Define todo o tom e abordagem do especialista)
+      function step2() {
+        runBotSequence([
+          {
+            delay: 900,
+            content: 'Para começarmos a análise personalizada: Qual é o seu gênero?'
+          }
+        ], function () {
+          setActions([
+            {
+              text: "Sou homem",
+              onSelect: function () {
+                userAnswers.gender = "homem";
+                userAnswers.targetName = "ela";
+                userAnswers.targetPossessive = "sua ex";
+                userAnswers.targetPronoun = "nela";
+                userAnswers.targetArt = "a";
+                userAnswers.targetOppositeGender = "feminino";
+                step3();
+              }
+            },
+            {
+              text: "Sou mulher",
+              onSelect: function () {
+                userAnswers.gender = "mulher";
+                userAnswers.targetName = "ele";
+                userAnswers.targetPossessive = "seu ex";
+                userAnswers.targetPronoun = "nele";
+                userAnswers.targetArt = "o";
+                userAnswers.targetOppositeGender = "masculino";
+                step3();
+              }
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 3: Frequência do pensamento
+      function step3() {
+        const questionText = userAnswers.gender === "homem"
+          ? 'Perfeito, meu amigo. Vou te tratar com total franqueza técnica.<br><br>Me responda com sinceridade: <b>Você ainda pensa nela?</b>'
+          : 'Perfeita, minha querida. Vamos analisar a psicologia dele com total clareza.<br><br>Me responda com sinceridade: <b>Você ainda pensa nele?</b>';
+
+        runBotSequence([
+          { delay: 1100, content: questionText }
+        ], function () {
+          setActions([
+            {
+              text: "Todos os dias",
+              onSelect: function () {
+                userAnswers.frequency = "todos_os_dias";
+                step4();
+              }
+            },
+            {
+              text: "Às vezes",
+              onSelect: function () {
+                userAnswers.frequency = "as_vezes";
+                step4();
+              }
+            },
+            {
+              text: "Tento evitar",
+              onSelect: function () {
+                userAnswers.frequency = "tento_evitar";
+                step4();
+              }
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 4: Tempo de término (Diagnóstico específico e personalizado)
+      function step4() {
+        let feedback = "";
+        if (userAnswers.gender === "homem") {
+          if (userAnswers.frequency === "todos_os_dias") {
+            feedback = 'Entendi perfeitamente... Pensar nela 24h por dia é uma reação neurológica clássica de abstinência de dopamina. Isso prova que sua conexão com ela ainda é profunda, e essa mesma intensidade de sentimento pode ser reativada na mente dela.';
+          } else if (userAnswers.frequency === "as_vezes") {
+            feedback = 'Compreendo. Mesmo você tentando seguir sua rotina, do nada vem um gatilho mental que traz a imagem dela de volta. Isso acontece quando ainda existem pontas emocionais soltas entre vocês.';
+          } else {
+            feedback = 'O fato de você tentar evitar pensar nela mostra o quanto essa separação ainda machuca por dentro. Tentar reprimir só aumenta a pressão. Mas vamos canalizar essa energia de forma estratégica.';
+          }
+        } else {
+          // Mulher
+          if (userAnswers.frequency === "todos_os_dias") {
+            feedback = 'Eu compreendo a sua dor, minha querida... Ficar pensando nele a todo momento e olhando o celular é o sintoma clássico de um laço afetivo forte que foi cortado de forma dolorosa. Nós vamos reequilibrar esse jogo.';
+          } else if (userAnswers.frequency === "as_vezes") {
+            feedback = 'Entendi... Mesmo você tentando focar em si mesma, nos momentos de silêncio a lembrança dele volta a apertar o peito. Isso mostra que o sentimento ainda está muito vivo dentro de você.';
+          } else {
+            feedback = 'Quando uma mulher tenta evitar pensar no ex, muitas vezes é para se blindar de sofrer novamente. Mas o segredo não é fugir, e sim entender como reativar a atração na cabeça dele.';
+          }
+        }
+
+        runBotSequence([
+          { delay: 1300, content: feedback },
+          { delay: 1100, content: 'E me diga: <b>Há quanto tempo vocês terminaram?</b>' }
+        ], function () {
+          setActions([
+            {
+              text: "Menos de uma semana",
+              onSelect: function () {
+                userAnswers.timeEnded = "menos_uma_semana";
+                step5();
+              }
+            },
+            {
+              text: "Cerca de um mês",
+              onSelect: function () {
+                userAnswers.timeEnded = "cerca_um_mes";
+                step5();
+              }
+            },
+            {
+              text: "2-6 meses",
+              onSelect: function () {
+                userAnswers.timeEnded = "2_6_meses";
+                step5();
+              }
+            },
+            {
+              text: "Mais de 6 meses",
+              onSelect: function () {
+                userAnswers.timeEnded = "mais_6_meses";
+                step5();
+              }
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 5: Quem tomou a decisão
+      function step5() {
+        let feedback = "";
+        const tName = userAnswers.targetName; // ela / ele
+
+        if (userAnswers.gender === "homem") {
+          if (userAnswers.timeEnded === "menos_uma_semana") {
+            feedback = 'O término está fresquíssimo na memória dela! As emoções ainda estão à flor da pele. Esse é o momento crucial onde 95% dos homens se desesperam e estragam tudo, mas com a postura correta, sua chance de virar o jogo é altíssima!';
+          } else if (userAnswers.timeEnded === "cerca_um_mes") {
+            feedback = 'Cerca de um mês é exatamente a fase em que a poeira baixa e a sensação de alívio inicial dela começa a se transformar em dúvida e saudade. É o timing ideal para disparar os gatilhos da atração.';
+          } else if (userAnswers.timeEnded === "2_6_meses") {
+            feedback = 'Mesmo depois desse tempo, a conexão que vocês construíram não é apagada assim. Ela pode até parecer firme nas redes sociais, mas no íntimo as memórias ainda permanecem gravadas.';
+          } else {
+            feedback = 'Mais de 6 meses significa que as mágoas e brigas do término já esfriaram. A psicologia comprova que o cérebro humano descarta as lembranças ruins e preserva a nostalgia dos momentos bons.';
+          }
+        } else {
+          // Mulher
+          if (userAnswers.timeEnded === "menos_uma_semana") {
+            feedback = 'Está muito recente! Nesse início, o homem costuma vestir uma armadura de orgulho e fingir frieza. É essencial não entrar em pânico agora, pois a sua reação nestes dias define tudo.';
+          } else if (userAnswers.timeEnded === "cerca_um_mes") {
+            feedback = 'Um mês é o ponto em que aquela falsa sensação de liberdade do homem dá lugar ao vazio da sua ausência. Quando você aplica os estímulos certos agora, o impacto nele é avassalador.';
+          } else if (userAnswers.timeEnded === "2_6_meses") {
+            feedback = 'Com esse tempo, o ego e a teimosia dele já desceram. Ele com certeza já comparou você com outras e percebeu que o que vocês tinham era especial.';
+          } else {
+            feedback = 'Mais de meio ano... O tempo é o melhor remédio para curar ressentimentos e fazer brotar a saudade verdadeira. Se ele ainda não veio por orgulho, nós vamos provocar essa reaproximação.';
+          }
+        }
+
+        const optWho = userAnswers.gender === "homem"
+          ? [
+              { text: "Ela terminou comigo", val: "ela" },
+              { text: "Eu terminei com ela", val: "eu" },
+              { text: "Foi uma decisão mútua", val: "mutua" }
+            ]
+          : [
+              { text: "Ele terminou comigo", val: "ele" },
+              { text: "Eu terminei com ele", val: "eu" },
+              { text: "Foi uma decisão mútua", val: "mutua" }
+            ];
+
+        runBotSequence([
+          { delay: 1400, content: feedback },
+          { delay: 1100, content: 'Agora me responda: <b>Quem tomou a decisão do término?</b>' }
+        ], function () {
+          setActions(optWho.map(function (o) {
+            return {
+              text: o.text,
+              onSelect: function () {
+                userAnswers.whoEnded = o.val;
+                step6();
+              }
+            };
+          }));
+        });
+      }
+
+      // ETAPA 6: Se correu atrás
+      function step6() {
+        let feedbackWho = "";
+        if (userAnswers.gender === "homem") {
+          if (userAnswers.whoEnded === "ela") {
+            feedbackWho = 'Quando a mulher decide terminar, ela já vinha ensaiando isso mentalmente. Ela espera que você vá atrás implorando. Se você quebra essa expectativa, gera um choque imediato na mente dela.';
+          } else if (userAnswers.whoEnded === "eu") {
+            feedbackWho = 'Se você terminou e se arrependeu, o ego dela foi ferido e ela ativou um escudo de proteção para não parecer frágil. Precisamos desarmar essa defesa com muita inteligência.';
+          } else {
+            feedbackWho = 'Término mútuo quase sempre é resultado de desgaste da rotina, e não falta de amor. O sentimento ainda pulsa, só precisamos reacender o fogo.';
+          }
+        } else {
+          // Mulher
+          if (userAnswers.whoEnded === "ele") {
+            feedbackWho = 'Quando o homem termina, muitas vezes é por se sentir sufocado ou confuso. Ele espera que você vá atrás. Se você adota a postura de alto valor, ele perde o chão de curiosidade.';
+          } else if (userAnswers.whoEnded === "eu") {
+            feedbackWho = 'Você terminou por cansaço ou impulso, mas percebeu que ainda o ama. O homem rejeitado sofre no orgulho. Vamos curar isso sem você precisar se rebaixar.';
+          } else {
+            feedbackWho = 'Decisão mútua normalmente acontece por falta de comunicação assertiva. Quando o afastamento se instala, a carência e a falta voltam com tudo.';
+          }
+        }
+
+        runBotSequence([
+          { delay: 1300, content: feedbackWho },
+          { delay: 1100, content: 'E depois do término, <b>você chegou a correr atrás?</b>' }
+        ], function () {
+          setActions([
+            {
+              text: "Sim, várias vezes",
+              onSelect: function () {
+                userAnswers.ranAfter = "sim";
+                step7();
+              }
+            },
+            {
+              text: "Tentei, mas não deu certo",
+              onSelect: function () {
+                userAnswers.ranAfter = "tentei";
+                step7();
+              }
+            },
+            {
+              text: "Não fiz nada",
+              onSelect: function () {
+                userAnswers.ranAfter = "nao";
+                step7();
+              }
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 7: Bloqueio defensivo (Psicologia profunda)
+      function step7() {
+        let content = "";
+        const targetGender = userAnswers.targetOppositeGender; // feminino ou masculino
+        const tName = userAnswers.targetName;
+
+        if (userAnswers.gender === "homem") {
+          if (userAnswers.ranAfter === "sim" || userAnswers.ranAfter === "tentei") {
+            content = 'O que quase nenhum homem percebe… é que depois do término, o cérebro feminino entra num estado chamado: <b>“bloqueio emocional defensivo”</b>.<br><br>E quanto mais você insiste, manda mensagens e tenta justificar… mais esse bloqueio dela se fortalece e ela se afasta.<br><br>Mas <b>8 em cada 10 homens</b> conseguem reverter isso logo nos primeiros dias quando param de agir por desespero e aprendem a ativar os gatilhos certos da atração!';
+          } else {
+            content = 'A maioria dos homens erra feio por ficar completamente paralisado sem saber o que fazer… o tempo passa e ela acaba se acostumando com a ausência.<br><br>O segredo não é correr atrás, mas sim aplicar estímulos subconscientes que reativam o interesse dela sem você se expor.<br><br><b>8 em cada 10 homens</b> notam mudanças drásticas já nos primeiros dias ao aplicar essa técnica!';
+          }
+        } else {
+          // Mulher
+          if (userAnswers.ranAfter === "sim" || userAnswers.ranAfter === "tentei") {
+            content = 'O que poucas mulheres sabem é que o cérebro masculino responde com <b>afastamento imediato</b> quando sente cobrança ou desespero emocional pós-término.<br><br>Quanto mais você se declarava ou tentava conversar, mais ele vestia a capa de homem frio e seguro de si.<br><br>Mas quando você corta esse padrão e ativa os gatilhos do magnetismo pessoal, ele é quem começa a se perguntar por que você parou de procurá-lo!';
+          } else {
+            content = 'Você fez muito bem em manter sua postura e não se humilhar! Porém, apenas esperar que ele tome atitude pode abrir espaço para que o orgulho dele vença.<br><br>O segredo é usar os gatilhos da atração sutil para provocar o desejo dele de te procurar, sem parecer que você está correndo atrás.';
+          }
+        }
+
+        runBotSequence([
+          { delay: 1600, content: content }
+        ], function () {
+          setActions([
+            {
+              text: "Continuar",
+              onSelect: step8
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 8: Maior medo/preocupação
+      function step8() {
+        const concernQuestion = userAnswers.gender === "homem"
+          ? 'Agora me conte a verdade: <b>O que mais te preocupa hoje nessa situação?</b>'
+          : 'Agora me diga de coração: <b>O que mais te angustia hoje nessa situação?</b>';
+
+        const optConcerns = userAnswers.gender === "homem"
+          ? [
+              { text: "Ela esquecer de mim", val: "esquecer" },
+              { text: "Ela se envolver com outro", val: "outro" },
+              { text: "Ela não sentir o que sentia antes", val: "sentir" },
+              { text: "Perder ela definitivamente", val: "perder" }
+            ]
+          : [
+              { text: "Ele esquecer de mim", val: "esquecer" },
+              { text: "Ele se envolver com outra", val: "outro" },
+              { text: "Ele não sentir o que sentia antes", val: "sentir" },
+              { text: "Perder ele definitivamente", val: "perder" }
+            ];
+
+        runBotSequence([
+          { delay: 1100, content: concernQuestion }
+        ], function () {
+          setActions(optConcerns.map(function (c) {
+            return {
+              text: c.text,
+              onSelect: function () {
+                userAnswers.concern = c.val;
+                step9();
+              }
+            };
+          }));
+        });
+      }
+
+      // ETAPA 9: Validação emocional personalizada para cada um dos 4 medos
+      function step9() {
+        let validation = "";
+        const tPronoun = userAnswers.targetPronoun; // nela / nele
+        const tPoss = userAnswers.targetPossessive; // sua ex / seu ex
+
+        if (userAnswers.gender === "homem") {
+          if (userAnswers.concern === "esquecer") {
+            validation = 'Eu sei o quanto a ideia dela esquecer de você machuca a mente de um homem. Mas fique em paz: ninguém apaga uma história de amor da noite para o dia. Com os gatilhos certos, a memória afetiva dela é reativada e ela voltará a pensar em você.';
+          } else if (userAnswers.concern === "outro") {
+            validation = 'O medo dela se envolver com outro é a maior tortura psicológica. Porém, a psicologia comprova que relacionamentos de rebote quase sempre fracassam, porque são apenas tentativas rasas de preencher o vazio que você deixou. Quando você ativa sua presença, ninguém compete com você.';
+          } else if (userAnswers.concern === "sentir") {
+            validation = 'Você sente que o sentimento dela esfriou, mas na verdade ele só foi encoberto pelas mágoas recentes. O amor não evapora, ele adormece. E ativando os gatilhos da atração, a paixão volta a queimar como no início.';
+          } else {
+            validation = 'A sensação de perder a mulher que você ama de forma definitiva é assustadora. Mas você está aqui exatamente para impedir que isso aconteça. Vamos recuperar essa história.';
+          }
+        } else {
+          // Mulher
+          if (userAnswers.concern === "esquecer") {
+            validation = 'Eu sei como dói imaginar que ele possa te esquecer. Mas homens não esquecem mulheres que marcaram suas vidas. O cérebro masculino na verdade tende a idealizar a ex quando sente que realmente a perdeu.';
+          } else if (userAnswers.concern === "outro") {
+            validation = 'Eu entendo esse pavor dele se envolver com outra. Mas saiba: quando um homem busca aventuras pós-término, é apenas para massagear o ego. Quando você ativa seu magnetismo e postura de alto valor, nenhuma outra chega aos seus pés.';
+          } else if (userAnswers.concern === "sentir") {
+            validation = 'Você teme que ele não sinta mais nada por você. Mas a atração do homem é ativada por estímulos específicos de mistério e admiração. Vamos reacender esse desejo nele.';
+          } else {
+            validation = 'A angústia de perder quem você ama é uma ferida aberta. Mas você não está sozinha. Vamos aplicar o passo a passo científico para trazê-lo de volta valorizando você como nunca antes.';
+          }
+        }
+
+        runBotSequence([
+          { delay: 1500, content: validation }
+        ], function () {
+          setActions([
+            {
+              text: "Continuar",
+              onSelect: step10
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 10: Reação atual
+      function step10() {
+        const reactionQuestion = userAnswers.gender === "homem"
+          ? 'E me diga: <b>Como ela reage hoje quando você fala com ela ou tenta contato?</b>'
+          : 'E me diga: <b>Como ele se comporta hoje quando há algum contato entre vocês?</b>';
+
+        runBotSequence([
+          { delay: 1100, content: reactionQuestion }
+        ], function () {
+          setActions([
+            {
+              text: "Me ignora",
+              onSelect: function () {
+                userAnswers.reaction = "ignora";
+                step11();
+              }
+            },
+            {
+              text: "Responde frio",
+              onSelect: function () {
+                userAnswers.reaction = "frio";
+                step11();
+              }
+            },
+            {
+              text: "Ainda conversamos",
+              onSelect: function () {
+                userAnswers.reaction = "conversamos";
+                step11();
+              }
+            },
+            {
+              text: "Me bloqueou",
+              onSelect: function () {
+                userAnswers.reaction = "bloqueou";
+                step11();
+              }
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 11: Se voltasse hoje
+      function step11() {
+        let feedbackReaction = "";
+        const tName = userAnswers.targetName;
+
+        if (userAnswers.reaction === "ignora") {
+          feedbackReaction = 'Entendi… Quando ' + tName + ' te ignora, é para sustentar distância emocional e não ceder. Isso é uma barreira defensiva, e nós vamos desarmá-la com elegância.';
+        } else if (userAnswers.reaction === "frio") {
+          feedbackReaction = 'Ok… Respostas frias e curtas indicam que a pessoa ainda se importa, mas está se esforçando para esconder os sentimentos por trás de uma máscara racional.';
+        } else if (userAnswers.reaction === "conversamos") {
+          feedbackReaction = 'Isso é um sinal excelente! Se ainda há diálogo, a ponte entre vocês não foi destruída. Só precisamos transformar essa conversa comum em desejo ardente e atração.';
+        } else {
+          // Bloqueou
+          feedbackReaction = 'O bloqueio assusta, mas na psicologia é a maior prova de que ' + tName + ' NÃO é indiferente! Quem não sente nada apenas ignora; quem bloqueia está tentando se proteger porque ainda mexe com o psicológico.';
+        }
+
+        const acceptQuestion = userAnswers.gender === "homem"
+          ? 'Se ela batesse na sua porta hoje arrependida… <b>você aceitaria ela de volta?</b>'
+          : 'Se ele te procurasse hoje arrependido… <b>você aceitaria ele de volta?</b>';
+
+        runBotSequence([
+          { delay: 1300, content: feedbackReaction },
+          { delay: 1100, content: acceptQuestion }
+        ], function () {
+          setActions([
+            {
+              text: "Com certeza, na hora",
+              onSelect: function () {
+                userAnswers.acceptBack = "sim";
+                step12();
+              }
+            },
+            {
+              text: "Sim, mas com condições",
+              onSelect: function () {
+                userAnswers.acceptBack = "condicoes";
+                step12();
+              }
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 12: Nível de desejo
+      function step12() {
+        let feedbackAccept = "";
+        if (userAnswers.acceptBack === "sim") {
+          feedbackAccept = 'Eu compreendo o seu coração. Porém, no método vou te ensinar a não entregar tudo de bandeja logo de cara, para que ' + userAnswers.targetName + ' aprenda a te dar o devido valor!';
+        } else {
+          feedbackAccept = 'Sensacional! Essa é a postura exata de quem tem alto valor. Voltar apenas por voltar não resolve; o relacionamento precisa renascer muito mais forte, com respeito mútuo.';
+        }
+
+        const desireQuestion = userAnswers.gender === "homem"
+          ? 'Em uma escala de 1 a 3: <b>O quanto você realmente quer ela de volta na sua vida?</b>'
+          : 'Em uma escala de 1 a 3: <b>O quanto você realmente quer ele de volta na sua vida?</b>';
+
+        runBotSequence([
+          { delay: 1200, content: feedbackAccept },
+          { delay: 1100, content: desireQuestion }
+        ], function () {
+          setActions([
+            {
+              text: "1 (pouco)",
+              onSelect: function () {
+                userAnswers.desireLevel = 1;
+                step13();
+              }
+            },
+            {
+              text: "2 (médio)",
+              onSelect: function () {
+                userAnswers.desireLevel = 2;
+                step13();
+              }
+            },
+            {
+              text: "3 (quero muito)",
+              onSelect: function () {
+                userAnswers.desireLevel = 3;
+                step13();
+              }
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 13: Reativação dos gatilhos
+      function step13() {
+        const triggerMessage = userAnswers.gender === "homem"
+          ? 'Quando você <b>reativa os gatilhos emocionais certos</b>… ela começa a pensar em você dia e noite — e a <b>vontade de voltar vem de forma natural e irresistível.</b>'
+          : 'Quando você <b>reativa os gatilhos emocionais certos</b>… ele passa a enxergar você como a única mulher indispensável na vida dele — e o <b>desejo de voltar vem forte e avassalador.</b>';
+
+        runBotSequence([
+          { delay: 1300, content: triggerMessage }
+        ], function () {
+          setActions([
+            {
+              text: "Continuar",
+              onSelect: step14
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 14: Compromisso com o método de 14 dias
+      function step14() {
+        const commitQuestion = userAnswers.gender === "homem"
+          ? 'Se existisse um plano prático passo a passo de 14 dias, validado cientificamente para fazer sua ex voltar rápido, <b>você se comprometeria a seguir?</b>'
+          : 'Se existisse um plano prático passo a passo de 14 dias, validado cientificamente para fazer seu ex voltar rápido, <b>você se comprometeria a seguir?</b>';
+
+        runBotSequence([
+          { delay: 1200, content: commitQuestion }
+        ], function () {
+          setActions([
+            {
+              text: "Sim, eu me comprometo",
+              onSelect: function () {
+                userAnswers.commitment = "sim";
+                step15();
+              }
+            },
+            {
+              text: "Sim, mas quero entender cada detalhe",
+              onSelect: function () {
+                userAnswers.commitment = "detalhes";
+                step15();
+              }
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 15: Diagnóstico do Caso em 5 Mensagens
+      function step15() {
+        const tPoss = userAnswers.targetPossessive;
+        const pronounTarget = userAnswers.targetPronoun;
+
+        runBotSequence([
+          {
+            delay: 1500,
+            content: '⚠️ <b>Análise concluída com sucesso!</b><br><br>Pelas suas respostas, eu identifiquei com exatidão o que está travando a sua situação.<br><br>O problema real não é o término em si... mas sim certas atitudes involuntárias que acabam reforçando o bloqueio emocional e a distância.'
+          },
+          {
+            delay: 1600,
+            content: 'E é exatamente <b><i>por isso</i></b> que a grande maioria das pessoas falha miseravelmente ao tentar recuperar quem ama.<br><br><i>Elas tentam dialogar demais, mandar textões, implorar, ou até fazer contato zero de forma errada...</i><br><br>E acabam <b>empurrando a pessoa ainda mais para longe sem perceber</b>.'
+          },
+          {
+            delay: 1600,
+            content: 'A boa notícia?<br><br>Esse bloqueio ainda pode ser completamente dissolvido no seu caso. <b>Você tem altíssimas chances de reconquista!</b><br><br>Ao ativar os <b>gatilhos da atração</b> da forma correta, você desperta as memórias positivas que ' + userAnswers.targetName + ' tinha com você antes do término!'
+          },
+          {
+            delay: 1600,
+            content: 'Por isso, a <b>solução definitiva para você</b> é o:<br><br>🔥 <b>Plano Reconquista Absoluta</b><br><br>Um cronograma de 14 dias desenhado sob medida, onde te ensino passo a passo o que fazer, o que falar e quando agir para reatar essa relação com solidez!'
+          },
+          {
+            delay: 1200,
+            content: 'E o melhor: com total dignidade, sem precisar se humilhar, implorar ou fazer joguinhos infantis.'
+          }
+        ], function () {
+          setActions([
+            {
+              text: "Continuar",
+              onSelect: step16
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 16: Benefícios
+      function step16() {
+        const tName = userAnswers.targetName;
+        const benefitsHtml = userAnswers.gender === "homem"
+          ? 'Veja alguns dos benefícios que você vai vivenciar com o Plano Reconquista Absoluta:<br><br>✅ Fazer ela sentir sua falta desesperadamente<br>✅ Reativar a atração e o desejo dela por você<br>✅ Fazer ela voltar a pensar em você o dia todo<br>✅ Fazer ela puxar assunto e te procurar<br>✅ Recuperar o respeito e a admiração masculina<br>✅ Fazer ela se arrepender do término<br>✅ Trazer ela de volta para os seus braços de forma natural'
+          : 'Veja alguns dos benefícios que você vai vivenciar com o Plano Reconquista Absoluta:<br><br>✅ Fazer ele sentir sua falta desesperadamente<br>✅ Reativar a atração e o magnetismo dele por você<br>✅ Fazer ele voltar a pensar em você o dia todo<br>✅ Fazer ele tomar atitude e te procurar arrependido<br>✅ Recuperar a admiração e o respeito mútuo<br>✅ Fazer ele perceber a mulher incrível que perdeu<br>✅ Trazer ele de volta para a sua vida de forma apaixonada';
+
+        runBotSequence([
+          { delay: 1500, content: benefitsHtml }
+        ], function () {
+          setActions([
+            {
+              text: "Continuar",
+              onSelect: step17
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 17: Prova Social (Depoimentos Reais)
+      function step17() {
+        const statsText = userAnswers.gender === "homem"
+          ? '<b>94% dos homens</b> que estavam em uma <u>situação idêntica à sua</u>...<br><br>seguiram o Plano Reconquista Absoluta e <b>reconquistaram a ex em menos de 14 dias!</b>'
+          : '<b>94% das mulheres</b> que estavam em uma <u>situação idêntica à sua</u>...<br><br>seguiram o Plano Reconquista Absoluta e <b>reconquistaram o ex em menos de 14 dias!</b>';
+
+        runBotSequence([
+          { delay: 1400, content: statsText },
+          { delay: 1400, isImage: true, content: 'assets/depoimento1.jpg' },
+          { delay: 1400, isImage: true, content: 'assets/depoimento2.jpg' },
+          { delay: 1400, isImage: true, content: 'assets/depoimento3.jpg' },
+          {
+            delay: 1600,
+            content: 'Como você pôde ver nos prints reais... Quem aplica o Plano Reconquista Absoluta obtém <b>resultados surpreendentes logo nos primeiros dias.</b><br><br>Eles aprenderam a ativar os Gatilhos da Atração na medida certa, sem cobrança e sem humilhação.'
+          },
+          {
+            delay: 1400,
+            content: 'Muitos relatam que, quando a chave vira na cabeça do ex... <b>eles mesmos passam a mandar mensagens, demonstrando ciúmes, saudade e vontade incontrolável de se aproximar!</b>'
+          }
+        ], function () {
+          setActions([
+            {
+              text: "Sim, eu quero esses resultados!",
+              onSelect: step18
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 18: Cronograma de 14 Dias
+      function step18() {
+        const tName = userAnswers.targetName;
+        const tCapital = tName.charAt(0).toUpperCase() + tName.slice(1);
+
+        runBotSequence([
+          {
+            delay: 1300,
+            content: 'Excelente decisão! Parabéns por dar esse passo de coragem.<br><br>Você também terá resultados transformadores com o método!'
+          },
+          {
+            delay: 1200,
+            content: 'E agora o <b>seu plano personalizado de 14 dias já está estruturado!</b>'
+          },
+          {
+            delay: 1200,
+            content: 'De acordo com suas respostas, assim será a evolução dos seus resultados dia a dia:'
+          },
+          {
+            delay: 1000,
+            content: '🔴 <b><i>Hoje:</i></b><br>' + tCapital + ' ainda se mantém distante e defensiv' + userAnswers.targetArt
+          },
+          {
+            delay: 1000,
+            content: '🟠 <b><i>Em 4 dias:</i></b><br>Começa a pensar em você com frequência e estranhar seu silêncio'
+          },
+          {
+            delay: 1000,
+            content: '🟡 <b><i>Em 9 dias:</i></b><br>Sente saudade irresistível e atração renovada por você'
+          },
+          {
+            delay: 1100,
+            content: '🟢 <b><i>Em 14 dias:</i></b><br>Se arrepende do término, percebe que você é a pessoa certa e toma a iniciativa de voltar!'
+          },
+          {
+            delay: 1100,
+            content: 'Você está pront' + (userAnswers.gender === "homem" ? "o" : "a") + ' para viver essa transformação?'
+          }
+        ], function () {
+          setActions([
+            {
+              text: "Sim, estou pronto para reconquistar!",
+              onSelect: step19
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 19: O que recebe + Mockups
+      function step19() {
+        runBotSequence([
+          {
+            delay: 1600,
+            content: '📋 <b>O QUE VOCÊ RECEBE NO PLANO:</b><br><br>✅ Cronograma completo de 14 dias de Reconquista<br>✅ Roteiro prático para ativar os gatilhos da atração<br>✅ Ações diárias validadas para acelerar a reaproximação<br>✅ Como agir mesmo que ' + userAnswers.targetName + ' esteja distante ou frio<br>✅ Recuperação total da autoestima e poder de atração<br>✅ Acesso imediato no seu celular, tablet ou computador<br>✅ Suporte exclusivo para dúvidas<br>✅ Acesso vitalício ao conteúdo'
+          },
+          {
+            delay: 1400,
+            isImage: true,
+            content: 'assets/mockup_dispositivos.jpg'
+          },
+          {
+            delay: 1200,
+            content: 'Você pode <b>acessar tudo direto pelo seu celular</b>, a qualquer hora e de qualquer lugar com total sigilo e discrição.'
+          },
+          {
+            delay: 1400,
+            isImage: true,
+            content: 'assets/mockup_alunos.jpg'
+          },
+          {
+            delay: 1200,
+            content: '✅ Milhares de alunos aplicaram e hoje estão felizes juntos novamente!'
+          }
+        ], function () {
+          setActions([
+            {
+              text: "Quero meu plano de reconquista!",
+              onSelect: step20
+            }
+          ]);
+        });
+      }
+
+      // ETAPA 20: 4 Bônus Exclusivos + Preços em METICAIS (MZN) começando de 197 MZN
+      function step20() {
+        runBotSequence([
+          {
+            delay: 1300,
+            content: 'Perfeito! E além do plano completo...<br><br>Eu vou liberar hoje para você <b>4 super bônus exclusivos</b>:'
+          },
+          {
+            delay: 1400,
+            content: '🎁 <b>#BÔNUS 1</b> — Guia dos 7 Erros Fatais Que Afastam<br><br>Descubra os principais erros que destroem a reconquista e como evitá-los.<br><br>De <s>350 MZN</s> por: <b>GRÁTIS</b>'
+          },
+          {
+            delay: 1400,
+            content: '🎁 <b>#BÔNUS 2</b> — Como Ler os Sinais de Interesse Ocultos<br><br>Identifique exatamente quando ' + userAnswers.targetName + ' está receptiv' + userAnswers.targetArt + ' para dar o passo certeiro.<br><br>De <s>450 MZN</s> por: <b>GRÁTIS</b>'
+          },
+          {
+            delay: 1400,
+            content: '🎁 <b>#BÔNUS 3</b> — Manual do Magnetismo Pessoal<br><br>Eleve sua presença e carisma para despertar desejo incontrolável.<br><br>De <s>400 MZN</s> por: <b>GRÁTIS</b>'
+          },
+          {
+            delay: 1400,
+            content: '🎁 <b>#SUPER BÔNUS 4</b> — Aplicativo com Desafios Diários e Acesso Vitalício<br><br>Acompanhe o método dia a dia na palma da mão.<br><br>De <s>800 MZN</s> por: <b>GRÁTIS</b>'
+          },
+          {
+            delay: 1500,
+            content: 'Quanto valeria tudo isso junto?<br><br>Se somássemos o valor real de cada material, você investiria facilmente mais de <s>2.500 Meticais</s>.<br><br>Porém, a minha missão de vida é ajudar pessoas de verdade a restaurarem suas famílias e histórias de amor.'
+          },
+          {
+            delay: 1300,
+            content: 'Por isso, hoje liberei condições especiais e <b>pacotes promocionais que começam a partir de apenas 197 Meticais!</b><br><br>Menos do que o valor de um simples lanche.'
+          },
+          {
+            delay: 1300,
+            content: '✅ E com <b>30 dias de garantia incondicional</b>: Se não gostar ou achar que não serviu, eu devolvo 100% do seu dinheiro. O seu risco é zero.'
+          },
+          {
+            delay: 1300,
+            content: 'Para você conferir todos os detalhes e escolher com calma, preparei uma <b>página exclusiva e oficial</b> com os 3 pacotes promocionais fora do chat.<br><br>Clique no botão abaixo para abrir a página dos pacotes em uma nova aba:'
+          }
+        ], function () {
+          setActions([
+            {
+              text: "👉 ABRIR PÁGINA DOS PACOTES (A PARTIR DE 197 MZN)",
+              isCta: true,
+              onSelect: function () {
+                window.open("planos.html", "_blank");
+                addHostMessage("✨ A página oficial com os 3 pacotes foi aberta em uma nova aba!<br><br>👉 Caso não tenha aberto automaticamente no seu navegador, <a href='planos.html' target='_blank' style='color:#008069;font-weight:700;text-decoration:underline;'>clique aqui para acessar a página de pacotes</a>.");
+              }
+            }
+          ]);
+        });
+      }
+
+      // Iniciar o fluxo
+      step0();
+    })();
+  </script>
+</body>
+</html>
