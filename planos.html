@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planos Exclusivos — Plano Reconquista Absoluta</title>
+  <link rel="icon" type="image/jpeg" href="assets/avatar.jpg" />
+
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #008069;
+      --primary-dark: #006653;
+      --primary-light: #e8f5f1;
+      --accent: #ff9800;
+      --accent-dark: #e65100;
+      --dark: #0f172a;
+      --gray-light: #f8fafc;
+      --gray-border: #e2e8f0;
+      --text-muted: #64748b;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+      background-color: #f1f5f9;
+      color: var(--dark);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* BARRA DE URGÊNCIA SUPERIOR */
+    .urgency-bar {
+      background: linear-gradient(90deg, #b91c1c, #dc2626);
+      color: #ffffff;
+      padding: 10px 14px;
+      text-align: center;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .countdown-tag {
+      background: rgba(0, 0, 0, 0.25);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 14.5px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: #ffffff;
+      padding: 40px 20px 30px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--gray-border);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 14px;
+    }
+
+    .badge-approved {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.25;
+      max-width: 780px;
+      margin: 0 auto 14px auto;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 16.5px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 20px auto;
+    }
+
+    .doctor-callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--gray-border);
+      border-radius: 50px;
+      padding: 6px 18px 6px 8px;
+      margin-top: 10px;
+    }
+
+    .doctor-callout img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .doctor-callout span {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    /* GRID DE PLANOS */
+    .pricing-section {
+      padding: 40px 0 60px 0;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: stretch;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 960px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero h1 {
+        font-size: 26px;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1.5px solid var(--gray-border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card.featured {
+      border: 2.5px solid var(--primary);
+      box-shadow: 0 10px 25px -5px rgba(0, 128, 105, 0.2);
+      transform: scale(1.03);
+      z-index: 2;
+    }
+
+    @media (max-width: 960px) {
+      .card.featured {
+        transform: none;
+      }
+    }
+
+    .card-ribbon {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 4px 16px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .card.featured .card-ribbon {
+      background: var(--accent-dark);
+    }
+
+    .card-top {
+      text-align: center;
+      border-bottom: 1px solid var(--gray-border);
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      min-height: 38px;
+    }
+
+    .card-price {
+      margin: 16px 0 6px 0;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .card-price small {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .price-period {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* LISTA DE BENEFÍCIOS */
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .features-list li {
+      font-size: 14px;
+      color: #334155;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.4;
+    }
+
+    .features-list li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--primary);
+    }
+
+    .features-list li.highlight {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    /* BOTÕES CTA */
+    .cta-btn {
+      width: 100%;
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-size: 15.5px;
+      font-weight: 800;
+      text-align: center;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0, 128, 105, 0.25);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .cta-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .card.featured .cta-btn {
+      background: #16a34a;
+      box-shadow: 0 4px 16px rgba(22, 163, 74, 0.35);
+      font-size: 16.5px;
+      animation: pulseBtn 2s infinite ease-in-out;
+    }
+
+    .card.featured .cta-btn:hover {
+      background: #15803d;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .guarantee-note {
+      font-size: 11.5px;
+      color: #64748b;
+      text-align: center;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    /* SEÇÃO DE PROVAS SOCIAIS */
+    .proof-section {
+      background: #ffffff;
+      padding: 50px 0;
+      border-top: 1px solid var(--gray-border);
+      border-bottom: 1px solid var(--gray-border);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .proof-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      display: block;
+    }
+
+    /* GARANTIA SECTION */
+    .guarantee-box {
+      max-width: 760px;
+      margin: 50px auto;
+      background: #ffffff;
+      border: 2px dashed #008069;
+      border-radius: 16px;
+      padding: 30px 24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    @media (max-width: 650px) {
+      .guarantee-box {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .guarantee-badge-img {
+      width: 90px;
+      height: 90px;
+      flex-shrink: 0;
+      background: var(--primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 24px;
+    }
+
+    .guarantee-box h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .guarantee-box p {
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding: 50px 0 60px 0;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+
+    .faq-item h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .faq-item p {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE URGÊNCIA -->
+  <div class="urgency-bar">
+    <span>🔥 CONDIÇÃO ESPECIAL LIBERADA POR TEMPO LIMITADO:</span>
+    <span class="countdown-tag" id="timer">14:59</span>
+  </div>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="container">
+      <div class="badge-approved">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Análise Concluída com Sucesso
+      </div>
+      <h1>Escolha Seu Plano e Comece Sua <span>Reconquista Absoluta</span> Hoje Mesmo</h1>
+      <p>Você tem chances reais de reverter o término. Selecione abaixo o pacote ideal para o seu momento e receba acesso imediato no seu celular:</p>
+
+      <div class="doctor-callout">
+        <img src="assets/avatar.jpg" alt="Dr. Carlos" />
+        <span>Método orientado por <b>Dr. Carlos</b> • Mais de 7.600 casos revertidos</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEÇÃO DE PLANOS (GRID DOS 3 PACOTES) -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="pricing-grid">
+
+        <!-- PLANO 1: ESSENCIAL (197 MZN) -->
+        <div class="card">
+          <div class="card-ribbon">Econômico</div>
+          <div class="card-top">
+            <h3 class="card-title">Plano Essencial</h3>
+            <p class="card-subtitle">Para quem quer agir rápido com o método direto e sem enrolação</p>
+            <div class="card-price">
+              197 <small>MZN</small>
+            </div>
+            <div class="price-period">Pagamento Único • Sem Mensalidades</div>
+          </div>
+
+          <ul class="features-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><b>Método Completo Reconquista Absoluta</b> (Cronograma de 14 Dias)</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Passo a Passo Diário dos Gatilhos da Atração</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><b>Bônus 1:</b> Guia dos 7 Erros Que Fazem o Ex se Afastar</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Acesso Imediato pelo Celular ou Computador</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Garantia Total de Reembolso por 30 Dias</span>
+            </li>
+          </ul>
+
+          <div>
+            <a href="https://pay.lojou.app/Ed43w" class="cta-btn">
+              QUERO O PLANO ESSENCIAL (197 MZN)
+            </a>
+            <div class="guarantee-note">
+              🔒 Pagamento 100% Seguro & Acesso Imediato
+            </div>
+          </div>
+        </div>
+
+        <!-- PLANO 2: RECOMENDADO ⭐ (297 MZN) -->
+        <div class="card featured">
+          <div class="card-ribbon">⭐ Mais Escolhido</div>
+          <div class="card-top">
+            <h3 class="card-title">Plano Recomendado</h3>
+            <p class="card-subtitle">O equilíbrio perfeito para acelerar e garantir suporte exclusivo</p>
+            <div class="card-price">
+              297 <small>MZN</small>
+            </div>
+            <div class="price-period">Pagamento Único • Acesso Vitalício</div>
+          </div>
+
+          <ul class="features-list">
+            <li class="highlight">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#008069" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><b>TUDO INCLUSO NO PLANO ESSENCIAL</b></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#008069" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><b>Bônus 2:</b> Como Ler os Sinais de Interesse Ocultos</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#008069" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><b>Bônus 3:</b> Manual do Magnetismo Pessoal & Presença</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#008069" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><b>Suporte & Tira-Dúvidas no WhatsApp</b> com Especialista</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#008069" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Acesso Vitalício sem cobranças adicionais</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#008069" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Garantia Total de Reembolso por 30 Dias</span>
+            </li>
+          </ul>
+
+          <div>
+            <a href="https://pay.lojou.app/9jRA6" class="cta-btn">
+              QUERO O PLANO RECOMENDADO (297 MZN)
+            </a>
+            <div class="guarantee-note">
+              🔒 Mais de 87% das pessoas escolhem esta opção
+            </div>
+          </div>
+        </div>
+
+        <!-- PLANO 3: VIP DEFINITIVO 🔥 (397 MZN) -->
+        <div class="card">
+          <div class="card-ribbon">🔥 VIP Completo</div>
+          <div class="card-top">
+            <h3 class="card-title">Plano Reconquista VIP</h3>
+            <p class="card-subtitle">O arsenal definitivo com app e roteiros prontos copie e cole</p>
+            <div class="card-price">
+              397 <small>MZN</small>
+            </div>
+            <div class="price-period">Pagamento Único • Acesso Vitalício VIP</div>
+          </div>
+
+          <ul class="features-list">
+            <li class="highlight">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><b>TUDO INCLUSO NOS PLANOS ANTERIORES</b></span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><b>Super Bônus 4:</b> Aplicativo com Desafios Diários</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><b>Bônus VIP:</b> Roteiros Prontos de WhatsApp (Copie e Cole)</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><b>Bônus Especial:</b> Como Blindar o Relacionamento Para Sempre</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Acesso Prioritário Vitalício ao Especialista</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Garantia Blindada de 30 Dias (Risco Zero)</span>
+            </li>
+          </ul>
+
+          <div>
+            <a href="https://pay.lojou.app/hvS22" class="cta-btn">
+              QUERO O PLANO VIP COMPLETO (397 MZN)
+            </a>
+            <div class="guarantee-note">
+              🔒 O pacote mais completo com todo o arsenal
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE DEPOIMENTOS -->
+  <section class="proof-section">
+    <div class="container">
+      <h2 class="section-title">Resultados Reais de Quem Aplicou o Método</h2>
+      <p class="section-sub">Veja mensagens reais de alunos que reataram e restauraram seus relacionamentos:</p>
+
+      <div class="proof-grid">
+        <div class="proof-card">
+          <img src="assets/depoimento1.jpg" alt="Depoimento 1">
+        </div>
+        <div class="proof-card">
+          <img src="assets/depoimento2.jpg" alt="Depoimento 2">
+        </div>
+        <div class="proof-card">
+          <img src="assets/depoimento3.jpg" alt="Depoimento 3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTIA BLINDADA -->
+  <section class="container">
+    <div class="guarantee-box">
+      <div class="guarantee-badge-img">30D</div>
+      <div>
+        <h3>Garantia Incondicional de 30 Dias</h3>
+        <p>Você não assume risco algum. Se dentro de 30 dias você aplicar o método e achar que não teve resultados, basta mandar uma única mensagem e devolvemos 100% do valor pago. Simples e sem letras miúdas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="section-title">Perguntas Frequentes</h2>
+      <p class="section-sub">Tire suas dúvidas antes de garantir sua vaga:</p>
+
+      <div class="faq-item">
+        <h4>Como recebo o acesso ao meu plano?</h4>
+        <p>Assim que o seu pagamento for aprovado, os dados de acesso são liberados imediatamente no seu WhatsApp e e-mail. Você já começa a aplicar hoje mesmo.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Funciona mesmo se a pessoa estiver fria ou bloqueou?</h4>
+        <p>Sim! O método foi desenhado exatamente para situações de bloqueio emocional e distância. Você saberá exatamente como agir para quebrar essa resistência sem se humilhar.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>O acesso é seguro e sigiloso?</h4>
+        <p>Totalmente discreto. Ninguém saberá que você adquiriu o método. A fatura não menciona nomes de relacionamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="container">
+      <p>Plano Reconquista Absoluta © Todos os direitos reservados.</p>
+      <p style="margin-top: 6px; font-size: 11.5px; opacity: 0.7;">Este produto não garante a obtenção de resultados sem a devida aplicação do método e dedicação pessoal.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DO TIMER REGRESSIVO -->
+  <script>
+    (function () {
+      let time = 14 * 60 + 59;
+      const display = document.getElementById("timer");
+      setInterval(function () {
+        if (time <= 0) return;
+        time--;
+        const m = Math.floor(time / 60);
+        const s = time % 60;
+        display.textContent = (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+      }, 1000);
+    })();
+  </script>
+</body>
+</html>
