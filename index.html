@@ -826,7 +826,9 @@
         scrollToBottom();
       }
 
-      // Executar sequência de mensagens do bot
+      let isFirstQuizLoad = true;
+
+      // Executar sequência de mensagens do bot (com tempo realista de resposta do Dr. Carlos)
       function runBotSequence(messages, onComplete) {
         let index = 0;
         function next() {
@@ -837,14 +839,34 @@
           }
 
           const current = messages[index++];
-          showTypingIndicator();
+          const isFirstInSequence = (index === 1);
 
-          const delay = current.delay || 1100;
+          let readingDelay;
+          let typingDelay;
+
+          if (isFirstQuizLoad) {
+            isFirstQuizLoad = false;
+            readingDelay = 200;
+            typingDelay = 900;
+          } else if (isFirstInSequence) {
+            // Resposta ao usuário: ~10 segundos (1.5s lendo a resposta + 8.5s digitando)
+            readingDelay = 1500;
+            typingDelay = 8500;
+          } else {
+            // Mensagens consecutivas do Dr. Carlos na mesma fala
+            readingDelay = 350;
+            typingDelay = current.isImage ? 2500 : (current.delay ? Math.max(current.delay * 2, 2800) : 3000);
+          }
+
+          // Pausa realista antes de começar a digitar (lendo a mensagem do usuário)
           setTimeout(function () {
-            hideTypingIndicator();
-            addHostMessage(current.content, current.isImage || false);
-            setTimeout(next, 450);
-          }, delay);
+            showTypingIndicator();
+            setTimeout(function () {
+              hideTypingIndicator();
+              addHostMessage(current.content, current.isImage || false);
+              setTimeout(next, 500);
+            }, typingDelay);
+          }, readingDelay);
         }
         next();
       }
