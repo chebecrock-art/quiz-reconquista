@@ -14,7 +14,7 @@ Clone completo, altamente responsivo, autônomo e de máxima conversão da pági
 3. **Respostas 100% Personalizadas por Especialista (Homem vs Mulher)**:
    - Se for **Homem**: Abordagem focada em reconquistar a ex, desarmar o bloqueio emocional feminino e recuperar a admiração e respeito de homem de alto valor.
    - Se for **Mulher**: Abordagem focada em reconquistar o ex, desarmar o orgulho masculino e ativar o magnetismo pessoal irresistível.
-   - **Zero placeholders**: Cada uma das opções de resposta (tempo de término, motivo, se correu atrás, maior medo, etc.) recebe um feedback psicológico técnico detalhado e acolhedor do Dr. Carlos.
+   - **Zero placeholders**: Cada uma das opções de resposta (tempo de término, motivo, se correu atrás, maior medo, etc.) recebe um feedback psicológico técnico detalhado e acolhedor do Dr. Edson Mucavele.
 4. **Moeda em Meticais (MZN)**:
    - O valor ao longo do quiz é ancorado em Meticais, mencionando que os pacotes começam a partir de apenas **197 Meticais (MZN)**.
 5. **Oferta Final com 3 Planos Estratégicos**:
@@ -34,7 +34,7 @@ clone-plano-reconquista/
 ├── server.ps1                  # Servidor HTTP local nativo
 ├── iniciar-servidor.bat        # Atalho de dois cliques para iniciar o servidor
 └── assets/                     # Todos os recursos e mídias locais
-    ├── avatar.jpg              # Foto de perfil do Dr. Carlos
+    ├── avatar.jpg              # Foto de perfil do Dr. Edson Mucavele
     ├── background.png          # Padrão de fundo oficial do WhatsApp
     ├── audio_whatsapp.mp3      # Som de notificação do WhatsApp
     ├── depoimento1.jpg         # Depoimento 1
