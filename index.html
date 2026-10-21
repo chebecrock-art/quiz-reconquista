@@ -247,7 +247,7 @@
       }
     }
 
-    /* Bolha Host (Dr. Carlos) */
+    /* Bolha Host (Dr. Edson Mucavele) */
     .msg-row.host .bubble {
       background-color: var(--wa-host-bubble);
       color: var(--wa-text-primary);
@@ -754,7 +754,7 @@
         headerStatus.classList.remove("typing");
       }
 
-      // Renderizar mensagem do Host (Dr. Carlos) com hora real
+      // Renderizar mensagem do Host (Dr. Edson Mucavele) com hora real
       function addHostMessage(htmlContent, isImage = false) {
         const row = document.createElement("div");
         row.className = "msg-row host";
@@ -832,7 +832,7 @@
 
       let isFirstQuizLoad = true;
 
-      // Executar sequência de mensagens do bot (com tempo realista de resposta do Dr. Carlos)
+      // Executar sequência de mensagens do bot (com tempo realista de resposta do Dr. Edson Mucavele)
       function runBotSequence(messages, onComplete) {
         let index = 0;
         function next() {
@@ -857,7 +857,7 @@
             readingDelay = 1500;
             typingDelay = 8500;
           } else {
-            // Mensagens consecutivas do Dr. Carlos na mesma fala
+            // Mensagens consecutivas do Dr. Edson Mucavele na mesma fala
             readingDelay = 350;
             typingDelay = current.isImage ? 2500 : (current.delay ? Math.max(current.delay * 2, 2800) : 3000);
           }
